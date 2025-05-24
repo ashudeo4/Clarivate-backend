@@ -44,8 +44,47 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-##Deployment
+## Deployment
 
-It is deployed
+It is deployed - 
+
+Pasting CURL
+
+# Health Check
+
+`
+curl --location 'http://144.24.143.19:3000/healthcheck'
+`
+
+# Sign Up
+
+`
+curl --location 'http://144.24.143.19:3000/auth/signup' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjgwY2UxMjQ5Y2QyMzgwN2U2OTA0MzAwIn0sImlhdCI6MTc0NTcwMzk4MiwiZXhwIjoxNzQ1NzM5OTgyfQ.hafp4ptcEx5OUHqCT1WURfJXkOph0lVzB6RrjGk-AFk' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "Ashutosh",
+    "email": "ashudeo4@gmail.com",
+    "password": "12345678",
+    "organization": "TH"
+}'
+`
 
 
+# Sign In
+
+`
+curl --location 'http://144.24.143.19:3000/auth/signin' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email": "ashudeo4@gmail.com",
+    "password": "12345678"
+}'
+`
+
+# Dashboard
+
+`
+curl --location 'http://144.24.143.19:3000/users/dashboard' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiYXNodWRlbzRAZ21haWwuY29tIiwibmFtZSI6IkFzaHV0b3NoIiwib3JnYW5pemF0aW9uIjoiVEgiLCJpYXQiOjE3NDgxMTE0NjYsImV4cCI6MTc0ODExNTA2Nn0.SykBZVqG84xSPkWHxrIS96C9_3BUQN0yJhrGsXUqvds'
+`
