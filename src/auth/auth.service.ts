@@ -23,7 +23,7 @@ export class AuthService {
       throw new BadRequestException('Invalid credentials');
     }
     const payload = {
-      sub: user.id,
+      user: user.id,
       email: user.email,
       name: user.name,
       organization: user.organization,
